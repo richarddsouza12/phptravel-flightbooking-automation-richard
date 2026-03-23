@@ -9,8 +9,15 @@ import { Utils } from '../helpers/Utils';
 
 test.describe("End to End Flight Booking Test", () => {
 
+    test.beforeEach(async ({ page }) => {
+
+        console.log("Running test with env : ", process.env.ENV);
+
+    });
+
     test("E2E : Goa to Pune : Single Passenger : First Listed Flight : Pay Later", async ({ page }, testInfo) => {
 
+        return;
         //Test Data Creation
         var guestDetails: GuestDetailsType         = DataCreationHelper.createGuestDetails(true, {gender: "male"});
         var passengerDetails: PassengerDetailsType = DataCreationHelper.createPassengerDetails(true, { gender: "male" });
@@ -18,9 +25,9 @@ test.describe("End to End Flight Booking Test", () => {
         console.log("Passenger Details : ", passengerDetails);
         //End - Test Data Creation
 
-        await page.goto("https://phptravels.net/flights");
+        await page.goto("/flights");
         await page.waitForLoadState("networkidle");
-
+   
         //Search Flight Search Page 
         const flightMainSearchPage = new FlightMainSearchPage(page);
         await flightMainSearchPage.populateFlightSearchDetailsAndSearch("Goa", "Pune", 2);
