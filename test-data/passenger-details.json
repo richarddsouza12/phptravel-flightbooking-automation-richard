@@ -1,0 +1,13 @@
+{
+    "title": "Mr",
+    "firstName": "Richard",
+    "lastName": "Dsouza",
+    "email": "richard.dsouza@example.com",
+    "nationalityCode": "IN",
+    "dateOfBirth": {
+        "day": "01",
+        "month": "02",
+        "year": "1989"
+    },
+    "passportNumber": "BTBPD8053P"
+}
