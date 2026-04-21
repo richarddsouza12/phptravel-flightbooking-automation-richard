@@ -17,7 +17,7 @@ test.describe("End to End Flight Booking Test", () => {
 
     test("E2E : Goa to Pune : Single Passenger : First Listed Flight : Pay Later", async ({ page }, testInfo) => {
 
-        return;
+
         //Test Data Creation
         var guestDetails: GuestDetailsType         = DataCreationHelper.createGuestDetails(true, {gender: "male"});
         var passengerDetails: PassengerDetailsType = DataCreationHelper.createPassengerDetails(true, { gender: "male" });
