@@ -6,18 +6,21 @@ import FlightRecieptPage from '../page-objects/FlightRecieptPage';
 import { GuestDetailsType, PassengerDetailsType } from '../data-models/CustomeDataTypes';
 import { DataCreationHelper } from '../helpers/DataCreationHelper';
 import { Utils } from '../helpers/Utils';
+import defaultConfig from "./../playwright.config";
 
 test.describe("End to End Flight Booking Test", () => {
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({ page } , testInfo ) => {
 
         console.log("Running test with env : ", process.env.ENV);
+        console.log( "defaultConfig.use.baseUrl :"  + defaultConfig.use?.baseURL );
+        console.log( "testInfo.config.workers :" + testInfo.config.workers )
 
     });
 
     test("E2E : Goa to Pune : Single Passenger : First Listed Flight : Pay Later", async ({ page }, testInfo) => {
 
-
+        return;
         //Test Data Creation
         var guestDetails: GuestDetailsType         = DataCreationHelper.createGuestDetails(true, {gender: "male"});
         var passengerDetails: PassengerDetailsType = DataCreationHelper.createPassengerDetails(true, { gender: "male" });

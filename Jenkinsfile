@@ -1,6 +1,11 @@
 pipeline {
   agent any
 
+
+  parameters {
+      string(name: 'WORKERS', defaultValue: '1', description: 'Workers/Threads')
+    }
+
   stages {
 
     stage('Install') {
@@ -11,7 +16,7 @@ pipeline {
 
     stage('Run Tests') {
       steps {
-        bat 'npx playwright test'
+         bat "npx playwright test --workers=${params.WORKERS}"
       }
     }
   }
